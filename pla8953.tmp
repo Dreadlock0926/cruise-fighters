@@ -1,0 +1,155 @@
+[gd_scene load_steps=28 format=3 uid="uid://cy2mg5v1apx23"]
+
+[ext_resource type="Texture2D" uid="uid://bqhay8hk3gi02" path="res://characters/ryu/backwalk/0.png" id="1_luult"]
+[ext_resource type="Script" path="res://player.gd" id="1_ot84k"]
+[ext_resource type="Texture2D" uid="uid://t18yq0ckg5bh" path="res://characters/ryu/backwalk/1.png" id="2_dkggd"]
+[ext_resource type="Texture2D" uid="uid://deaolxt4wfea6" path="res://characters/ryu/backwalk/2.png" id="3_u6rcg"]
+[ext_resource type="Texture2D" uid="uid://dsoaaaa6v27gj" path="res://characters/ryu/backwalk/3.png" id="4_3ae30"]
+[ext_resource type="Texture2D" uid="uid://cxbn57ri1b7jy" path="res://characters/ryu/backwalk/4.png" id="5_j3a1j"]
+[ext_resource type="Texture2D" uid="uid://bwyq5cv40lhs0" path="res://characters/ryu/backwalk/5.png" id="6_mgcgc"]
+[ext_resource type="Texture2D" uid="uid://dagx35cqyj3uu" path="res://characters/ryu/idle/0.png" id="7_h01m0"]
+[ext_resource type="Texture2D" uid="uid://n5qdymbju0s1" path="res://characters/ryu/crouch/0.png" id="8_bwy2l"]
+[ext_resource type="Texture2D" uid="uid://r3ew3elphy8g" path="res://characters/ryu/crouching/0.png" id="8_c4mqk"]
+[ext_resource type="Texture2D" uid="uid://c2f7dgflxx3ap" path="res://characters/ryu/idle/1.png" id="8_mu67v"]
+[ext_resource type="Texture2D" uid="uid://cquwcjjwtgtkq" path="res://characters/ryu/crouching/1.png" id="9_5v3q5"]
+[ext_resource type="Texture2D" uid="uid://dtpp5hdxro1i7" path="res://characters/ryu/idle/2.png" id="9_jbnjb"]
+[ext_resource type="Texture2D" uid="uid://dsrpurid7ggsc" path="res://characters/ryu/idle/3.png" id="10_fpx6h"]
+[ext_resource type="Texture2D" uid="uid://4a51ovtxavl4" path="res://characters/ryu/idle/4.png" id="11_uw384"]
+[ext_resource type="Texture2D" uid="uid://bur58yhl5fukq" path="res://characters/ryu/walk/0.png" id="12_50ngr"]
+[ext_resource type="Texture2D" uid="uid://o3qhmq6ebyj1" path="res://characters/ryu/walk/1.png" id="13_3vhy8"]
+[ext_resource type="Texture2D" uid="uid://dasr82ypuloio" path="res://characters/ryu/walk/2.png" id="14_uoao3"]
+[ext_resource type="Texture2D" uid="uid://dxpbabu848j8v" path="res://characters/ryu/walk/3.png" id="15_wv2ui"]
+[ext_resource type="Texture2D" uid="uid://byim24x31j1b2" path="res://characters/ryu/walk/4.png" id="16_xjvbs"]
+[ext_resource type="Texture2D" uid="uid://cdvul2xkcm3dp" path="res://characters/ryu/walk/5.png" id="17_rdvcd"]
+[ext_resource type="PackedScene" uid="uid://baltwr7iywbxo" path="res://state_machine.tscn" id="22_pi4qw"]
+[ext_resource type="Script" path="res://Idle.gd" id="23_lrqwq"]
+[ext_resource type="Script" path="res://Walk.gd" id="24_3yds2"]
+[ext_resource type="Script" path="res://Backwalk.gd" id="25_q64j4"]
+[ext_resource type="Script" path="res://Crouch.gd" id="26_jn2e5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8153w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_luult")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dkggd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u6rcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3ae30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j3a1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mgcgc")
+}],
+"loop": true,
+"name": &"backwalk",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bwy2l")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_c4mqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5v3q5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bwy2l")
+}],
+"loop": false,
+"name": &"crouching",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_h01m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mu67v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jbnjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fpx6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uw384")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_50ngr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3vhy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uoao3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wv2ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xjvbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rdvcd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ot84k")
+
+[node name="movement_animations" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8153w")
+animation = &"crouching"
+metadata/_edit_group_ = true
+
+[node name="movement_state_machine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("22_pi4qw")]
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("walk_state", "backwalk_state", "crouch_state")]
+script = ExtResource("23_lrqwq")
+walk_state = NodePath("../Walk")
+backwalk_state = NodePath("../Backwalk")
+crouch_state = NodePath("../Crouch")
+animation_name = "idle"
+
+[node name="Walk" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "backwalk_state")]
+script = ExtResource("24_3yds2")
+idle_state = NodePath("../Idle")
+backwalk_state = NodePath("../Backwalk")
+animation_name = "walk"
+
+[node name="Backwalk" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "walk_state")]
+script = ExtResource("25_q64j4")
+idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+animation_name = "backwalk"
+
+[node name="Crouch" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "backwalk_state")]
+script = ExtResource("26_jn2e5")
+idle_state = NodePath("../Idle")
+backwalk_state = NodePath("../Backwalk")
+animation_name = "crouching"
