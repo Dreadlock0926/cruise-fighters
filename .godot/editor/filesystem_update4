@@ -1,0 +1,13 @@
+res://state_machine.tscn
+res://state.tscn
+res://main.tscn
+res://player.tscn
+res://state.gd
+res://State Machine.gd
+res://player.gd
+res://Walk.gd
+res://Idle.gd
+res://Backwalk.gd
+res://Crouch.gd
+res://Crouched.gd
+res://Standing.gd
