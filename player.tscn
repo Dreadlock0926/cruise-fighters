@@ -194,7 +194,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 1.0
+"speed": 15.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -219,16 +219,18 @@ backwalk_state = NodePath("../Backwalk")
 crouching_state = NodePath("../Crouching")
 animation_name = "idle"
 
-[node name="Walk" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "backwalk_state")]
+[node name="Walk" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "backwalk_state", "crouching_state")]
 script = ExtResource("24_3yds2")
 idle_state = NodePath("../Idle")
 backwalk_state = NodePath("../Backwalk")
+crouching_state = NodePath("../Crouching")
 animation_name = "walk"
 
-[node name="Backwalk" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "walk_state")]
+[node name="Backwalk" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "walk_state", "crouching_state")]
 script = ExtResource("25_q64j4")
 idle_state = NodePath("../Idle")
 walk_state = NodePath("../Walk")
+crouching_state = NodePath("../Crouching")
 animation_name = "backwalk"
 
 [node name="Crouching" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("crouched_state")]
@@ -241,7 +243,9 @@ script = ExtResource("27_b7bdq")
 standing_state = NodePath("../Standing")
 animation_name = "crouch"
 
-[node name="Standing" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state")]
+[node name="Standing" type="Node" parent="movement_state_machine" node_paths=PackedStringArray("idle_state", "walk_state", "backwalk_state")]
 script = ExtResource("28_oqwt8")
 idle_state = NodePath("../Idle")
+walk_state = NodePath("../Walk")
+backwalk_state = NodePath("../Backwalk")
 animation_name = "standing"
